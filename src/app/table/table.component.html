@@ -1,0 +1,18 @@
+<ag-grid-angular
+  style="width: 100vw; height: 80vh;"
+  class="ag-theme-balham"
+  [rowData]="rowData"
+  [columnDefs]="columnDefs"
+  (gridReady)="onGridReady($event)"
+  (cellValueChanged)="cellValueChanged($event)"
+  [rowSelection]="rowSelection"
+  [gridOptions]="gridOptions"
+>
+</ag-grid-angular>
+<br><br>
+
+<button (click)="rollBackChangesStepByStep()" [hidden]="!changeLog.length">RollBack</button>
+<button (click)="rollBackByRow()" [hidden]="!changeLog.length">RollBack by row</button>
+<button (click)="rollBackAllChangesSelected()" [hidden]="!changeLog.length">RollBack All Selected</button>
+<button (click)="rollBackAllChanges()" [hidden]="!changeLog.length">RollBack All</button>
+<button (click)="commit()" [hidden]="!changeLog.length">Commit</button>

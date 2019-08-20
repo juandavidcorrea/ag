@@ -1,1 +1,117 @@
-/* You can add global styles to this file, and also import other style files */
+* {
+  box-sizing: border-box;
+}
+
+@import "~ag-grid-community/dist/styles/ag-grid.css";
+@import "~ag-grid-community/dist/styles/ag-theme-balham.css";
+
+/* ANIMATIONS AG-GRID */
+@keyframes rollbackChangeAnimation {
+  0% {
+    background-color: transparent;
+    color: black;
+  }
+  50% {
+    background-color: teal;
+    color: white;
+  }
+  100% {
+    background-color: transparent;
+    color: black;
+  }
+}
+
+.rollbackChange {
+  animation-duration: 1s;
+  animation-name: rollbackChangeAnimation;
+  animation-iteration-count: 1;
+  animation-direction: alternate;
+}
+
+.rollbackChangeRemoved {
+  animation: none;
+}
+
+/* -------- */
+
+@keyframes changePending {
+  0% {
+    background-color: indigo;
+  }
+  25% {
+    background-color: blue;
+  }
+  50% {
+    background-color: darkmagenta;
+  }
+  75% {
+    background-color: violet;
+  }
+  100% {
+    background-color: coral;
+  }
+}
+
+@keyframes changePendingIcon {
+  0% {
+    width: 3px;
+  }
+  50% {
+    width:5px;
+  }
+  100% {
+    width: 0;
+  }
+}
+
+.changePendingCell{
+  &:before {
+    content: '';
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background-color: #ff890a;
+    left: 0;
+  }
+}
+
+.changePending {
+  &:before {
+    position: absolute;
+    content: '';
+    width: 3px;
+    height: 100%;
+    background-color: red;
+    left: 0;
+    transition: all 0.3s;
+    animation: changePending infinite 3s alternate;
+  }
+}
+
+@keyframes changeApplied {
+  0% {
+    width: 0;
+    left: 0;
+  }
+  50% {
+    width: 100%;
+  }
+  100% {
+    width: 0;
+    left: 100%;
+  }
+}
+
+.changeApplied {
+  transition: all 0.3s;
+
+  &:before {
+    display: block;
+    content: '';
+    position: absolute;
+    background-color: #00a800;
+    height: 100%;
+    animation: changeApplied 1 1s alternate !important;
+  }
+}

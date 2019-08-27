@@ -1,5 +1,7 @@
-import {Component} from '@angular/core'
+import {Component, ViewChild} from '@angular/core'
 import {HttpClient} from '@angular/common/http'
+import {ColDef} from 'ag-grid-community'
+import {TableComponent} from './table/table.component'
 
 @Component({
   selector: 'app-root',
@@ -8,7 +10,25 @@ import {HttpClient} from '@angular/common/http'
 })
 export class AppComponent {
 
+  @ViewChild(TableComponent, {static: true})
+  public table: TableComponent<any>
+
   public data
+
+  public readonly columnDefs: ColDef[] = [
+    {headerName: 'Id', field: 'id'},
+    {
+      headerName: 'Usuario',
+      field: 'userId',
+      editable: true,
+    },
+    {
+      headerName: 'Title', field: 'title', editable: true,
+    },
+    {
+      headerName: 'Info', field: 'body', resizable: true, headerClass: 'resizable-header', editable: true,
+    },
+  ]
 
   constructor(
     private readonly http: HttpClient
@@ -22,7 +42,10 @@ export class AppComponent {
 
 
   public dataChanged($event): void {
-    console.log('commit', $event)
+    this.table.loading(true)
+    setTimeout(() => {
+      this.table.loading(false).apply()
+    }, 5000)
   }
 }
 

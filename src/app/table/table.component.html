@@ -7,12 +7,15 @@
   (cellValueChanged)="cellValueChanged($event)"
   [rowSelection]="rowSelection"
   [gridOptions]="gridOptions"
+  [frameworkComponents]="frameworkComponents"
+  [loadingOverlayComponent]="loadingOverlayComponent"
+  [noRowsOverlayComponent]="noRowsOverlayComponent"
 >
 </ag-grid-angular>
 <br><br>
 
-<button (click)="rollBackChangesStepByStep()" [hidden]="!changeLog.length">RollBack</button>
+<button (click)="rollBackChangesStepByStep()" [hidden]="!changeLog.length">RollBack Step By Step</button>
 <button (click)="rollBackByRow()" [hidden]="!changeLog.length">RollBack by row</button>
 <button (click)="rollBackAllChangesSelected()" [hidden]="!changeLog.length">RollBack All Selected</button>
 <button (click)="rollBackAllChanges()" [hidden]="!changeLog.length">RollBack All</button>
-<button (click)="commit()" [hidden]="!changeLog.length">Commit</button>
+<button (click)="emitCommit()" [hidden]="!changeLog.length">Commit All</button>

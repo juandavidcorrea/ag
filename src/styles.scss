@@ -12,7 +12,7 @@
     color: black;
   }
   50% {
-    background-color: teal;
+    background-color: #172641;
     color: white;
   }
   100% {
@@ -35,20 +35,14 @@
 /* -------- */
 
 @keyframes changePending {
-  0% {
-    background-color: indigo;
+  0%{
+    width: 0;
   }
-  25% {
-    background-color: blue;
+  50%{
+    width: 6px;
   }
-  50% {
-    background-color: darkmagenta;
-  }
-  75% {
-    background-color: violet;
-  }
-  100% {
-    background-color: coral;
+  100%{
+    width: 3px;
   }
 }
 
@@ -68,11 +62,16 @@
   &:before {
     content: '';
     position: absolute;
-    width: 5px;
-    height: 5px;
-    border-radius: 50%;
-    background-color: #ff890a;
     left: 0;
+    width: 0;
+    height: 0;
+    border-right: 5px solid transparent;
+    border-top: 5px solid transparent;
+    border-left: 5px solid #ff890a;
+    border-bottom: 5px solid #ff890a;
+    transform: rotate(90deg);
+    margin: 0;
+    padding: 0;
   }
 }
 
@@ -82,10 +81,10 @@
     content: '';
     width: 3px;
     height: 100%;
-    background-color: red;
+    background-color: #172641;
     left: 0;
     transition: all 0.3s;
-    animation: changePending infinite 3s alternate;
+    animation: changePending 1 0.3s linear;
   }
 }
 

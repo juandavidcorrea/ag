@@ -1,8 +1,7 @@
-import {Component, EventEmitter, Input, Output, SkipSelf} from '@angular/core'
+import {Component, EventEmitter, Input, Output} from '@angular/core'
 import {AgGridEvent, ColDef, ColumnApi, GridOptions, RowNode} from 'ag-grid-community'
 import {LoadingTableComponent} from '../loading-table/loading-table.component'
 import {NoRowsComponent} from '../no-rows/no-rows.component'
-import {EventsService} from "../events.service";
 
 type Any = any
 

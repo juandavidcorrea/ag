@@ -4,3 +4,6 @@ os: linux
 
 node_js:
   - "12"
+
+script:
+  - "npm run publish"
